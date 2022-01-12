@@ -6,6 +6,7 @@ var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
+builder.Services.AddSignalR();
 
 builder.Services.AddDbContext<Db>(opcije =>
     opcije.UseSqlServer(builder.Configuration.GetConnectionString("LokalnaBaza")));
@@ -26,6 +27,7 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+app.MapHub<PredavacHub>("predavacHub");
 app.MapRazorPages();
 app.MapControllers();
 app.MapFallbackToFile("index.html");

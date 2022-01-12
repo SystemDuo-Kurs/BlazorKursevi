@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BlazorKursevi.Shared
 {
-    public class Osoba
+    public abstract class Osoba
     {
         public int Id { get; set; }
         public string Ime { get; set; }
