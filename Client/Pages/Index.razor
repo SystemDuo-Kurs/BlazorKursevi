@@ -1,17 +1,11 @@
 ﻿@page "/"
-@inject NavigationManager NM
-@using Microsoft.AspNetCore.SignalR.Client
-
+@inject SRservis SR
 <PageTitle>Index</PageTitle>
-
+<button @onclick=Bla>Pauuuza</button>
 @code
 {
-    protected override async Task OnInitializedAsync()
+    private void Bla()
     {
-        HubConnection hc = new HubConnectionBuilder()
-            .WithUrl(NM.BaseUri + "predavacHub")
-            .Build();
-        await hc.StartAsync();
-        await hc.SendAsync("Test");
+        Console.WriteLine("Niiista");
     }
 }

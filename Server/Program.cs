@@ -1,4 +1,5 @@
 using BlazorKursevi.Server;
+using BlazorKursevi.Server.Servisi;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.EntityFrameworkCore;
 
@@ -7,6 +8,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 builder.Services.AddSignalR();
+builder.Services.AddTransient<PredavaciServis>();
 
 builder.Services.AddDbContext<Db>(opcije =>
     opcije.UseSqlServer(builder.Configuration.GetConnectionString("LokalnaBaza")));
